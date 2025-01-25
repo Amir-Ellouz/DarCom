@@ -1,0 +1,47 @@
+.card-01 {
+  background: #f3f5f7;
+  padding: 48px 32px 48px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 1;
+  position: relative;
+}
+.icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  position: relative;
+  overflow: visible;
+  align-self: center;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+.free-shipping {
+  color:  #141718;
+  text-align: left;
+  font-family: var(--headline-7-font-family, "Poppins-Medium", sans-serif);
+  font-size: 20px;
+  line-height:  28px;
+  font-weight:  500;
+  position: relative;
+}
+.order-above-200 {
+  color: #6c7275;
+  text-align: center;
+  font-family:  "Poppins-Regular", sans-serif;
+  font-size:  14px;
+  line-height: 24px;
+  font-weight:  400;
+  position: relative;
+  width: 198px;
+}
