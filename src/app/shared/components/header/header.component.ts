@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import {isSignedIn} from "../../../auth/store/auth.reducer";
+import * as authActions from '../../../auth/store/auth.actions';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +12,13 @@ import { Router } from '@angular/router';
   standalone: false,
 })
 export class HeaderComponent {
-  constructor(private router: Router) {}
+  isAuthenticated: Observable<boolean>;
+  
+  constructor(private store: Store,private router: Router) {
+    this.isAuthenticated = this.store.select(isSignedIn);
+  }
 
   onClick() {
-    // Placeholder for logout functionality
-    console.log('Logout clicked');
+    this.store.dispatch(authActions.logout());
   }
 }

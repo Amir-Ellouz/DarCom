@@ -1,12 +1,26 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import { RouteWatcherService } from './route-watcher.service';
+import {Store} from "@ngrx/store";
+import {autoLogin} from "./auth/store/auth.actions";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  standalone: false
 })
-export class AppComponent {
-  title = 'DarCom';
+export class AppComponent implements OnInit{
+  showHeaderFooter: boolean = true;
+  title = "DarCom"
+  constructor(private routeWatcherService: RouteWatcherService
+              ,private store: Store
+  ) {
+    routeWatcherService.showHeaderFooter.subscribe((show) => {
+      this.showHeaderFooter = show;
+    });
+  }
+
+  ngOnInit(): void {
+        this.store.dispatch(autoLogin())
+    }
 }
