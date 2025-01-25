@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="right-side">
+        <img src="assets/Left.png" class="right-img">
+    </div>
+    <div class="left-side">
+        <div>
+            <div class="title">
+                Sign in
+            </div>
+            <div class="description">
+                Don’t have an accout yet? <a routerLink="/auth/sign-up">Sign up</a>
+            </div>
+            <div class="spinner" *ngIf="(loading$ | async)"><mat-spinner></mat-spinner></div>
+
+            <form [formGroup]="form" class="example-form" (ngSubmit)="onSubmit()">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput placeholder="Ex. pat@example.com" formControlName="email">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>password</mat-label>
+                    <input type="password" matInput placeholder="Password" formControlName="password">
+                </mat-form-field>
+                <section class="example-section">
+                    <mat-checkbox class="example-margin"></mat-checkbox>I agree with <a routerLink="#">Privacy Policy
+                    </a> and <a routerLink="#">Terms</a> of Use
+                </section>
+                <div class=button-class>
+                    <button mat-raised-button>Sign in</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
