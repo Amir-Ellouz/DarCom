@@ -1,0 +1,113 @@
+.product{
+    position: relative;
+    /*width: 250px;*/
+}
+
+
+.absolut {
+    position: absolute;
+    top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    left: 5%;
+}
+
+
+.discount{
+    padding: 3px 14px;
+    border-radius: 5px;
+    background-color: #38CB89;
+    font-size: 14px;
+    color: #F3F5F7;
+    font-weight: 600;
+}
+
+
+
+.wishlist-button{
+    background-color: white;
+    display: flex;
+    border-radius: 60%;
+    padding: 6px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.wishlist-button img{
+    width: 16px;
+    height: 16px;
+}
+
+
+.hero-img{
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    background-color: #F3F5F7;
+}
+
+.hero-img img{
+    width: 100%;
+    height: auto;
+}
+
+.name{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+.price{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.current-price{
+    font-size: 14px;
+    font-weight: 500;
+    color: #121212;
+    margin-right: 10px;
+}
+
+.previous-price{
+    font-size: 14px;
+    font-weight: 500;
+    color: #6C7275;
+    text-decoration: line-through;
+}
+
+.button {
+    visibility: hidden;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease-in-out; /* Adjust the duration and easing as needed */
+    background-color: rgb(0, 0, 0);
+    border-radius: 8px;
+    color: #f0f0f0;
+    width: 80%;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+
+}
+
+.product:hover .button {
+  visibility: visible;
+  opacity: 1;
+
+}
+
+.product:hover .wishlist-button {
+    visibility: visible;
+}
+

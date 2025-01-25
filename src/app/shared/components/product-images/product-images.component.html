@@ -1,0 +1,16 @@
+<div class="images">
+    <div class="hero">
+        <img src="{{images[0]}}" class="prd-img">
+        <div class="img-controller">
+            <div class="previous-button controller" (click)="onPrevious()">
+                <img src="assets/arrow-left.svg">
+            </div>
+            <div class="next-button controller" (click)="onNext()">
+                <img src="assets/arrow-right.svg">
+            </div>
+        </div>
+    </div>
+    <div class="secondaries">
+      <img *ngFor="let image of images" src="{{image}}" class="prd-img">
+    </div>
+</div>

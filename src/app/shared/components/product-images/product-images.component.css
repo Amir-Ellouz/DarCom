@@ -1,0 +1,49 @@
+.images{
+    width: 100%;
+}
+
+
+.hero{
+    position: relative;
+}
+
+.hero img{
+    width: 100%;
+    height: auto;
+}
+
+.img-controller{
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    top: 49%;
+    left: 5%;
+}
+
+.controller{
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.secondaries{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.secondaries img{
+    width: 100%;
+    height: auto;
+}
+
+
+.prd-img{
+  background-color: #F3F5F7;
+}
