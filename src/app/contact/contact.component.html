@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="left-side">
+        <img src="assets/aboutus.jpg" class="right-img">
+    </div>
+    <div class="right-side">
+        <div>
+            <div class="title-aboutus">
+                About Us
+            </div>
+            <div class="description-aboutus">
+                Darcom is a home decor store based in Tunis. Est since 2019.
+                Our customer service is always prepared to support you 24/7.
+            </div>
+            <a [routerLink]="['/shop']">
+                <div class="title-shopnow">
+                    Shop Now <img src="assets/arrow-right.svg">
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="text-container">
+    <div class="title">
+        Living responsibly, creating beautifully. Our approach to home decor.
+    </div>
+    <div style=" height: 60px; position: relative"></div>
+
+</div>
+<div class="values">
+    <app-services imagePath="assets/fast delivery.svg" value="Address"
+        description="Centre Urbain Nord,Tunis"></app-services>
+    <app-services imagePath="assets/call.svg" value="Contact Us" description="+216 52 576 464"></app-services>
+    <app-services imagePath="assets/email.svg" value="Mail Us" description="contact@darcom.com"></app-services>
+</div>
+<div class="container-bot">
+    <div class="right-side">
+        <form [formGroup]="form" class="example-form" (ngSubmit)="onSubmit()">
+            <mat-form-field class="example-full-width">
+                <mat-label>Name</mat-label>
+                <input type="email" matInput placeholder="Ex. Jhon Kennedy" formControlName="name">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Ex. pat@example.com" formControlName="email">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-message">
+                <mat-label>Message</mat-label>
+                <textarea  matInput placeholder="Your Message" formControlName="message">
+                </textarea>
+            </mat-form-field>
+            <button class="button-class" mat-raised-button>Send</button>
+        </form>
+
+    </div>
+    <div class="left-side">
+        <div class="cun">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12771.510865354237!2d10.183548292031164!3d36.84540457750865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd34c79ebdb3af%3A0x13da2e9f0bf98fe6!2z2KfZhNmF2LHZg9iyINin2YTYudmF2LHYp9mG2Yog2KfZhNi02YXYp9mE2YosIFR1bmlz!5e0!3m2!1sen!2stn!4v1706912482080!5m2!1sen!2stn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</div>
+<div class="values-bottom">
+    <app-services imagePath="assets/fast delivery.svg" value="Free Shipping" description="Order above 500 Dt"></app-services>
+    <app-services imagePath="assets/money.svg" value="Money-back" description="30 days guarantee"></app-services>
+    <app-services imagePath="assets/lock 01.svg" value="Secure Payments" description="Secured by Visa"></app-services>
+    <app-services imagePath="assets/call.svg" value="24/7 Support" description="Phone and Email support"></app-services>
+  </div>
