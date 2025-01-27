@@ -10,11 +10,11 @@ import {authReducer} from "./auth/store/auth.reducer";
 import {AuthEffects} from "./auth/store/auth.effects";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./auth/auth.interceptor";
+import { wishlistEffects } from './account/wishlist/Store/wishlist.effects';
+import { GeneralDetailsEffect } from './account/general-details/Store/general-details.effect';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     SharedModule,
     BrowserModule,
@@ -25,16 +25,17 @@ import {AuthInterceptor} from "./auth/auth.interceptor";
       auth: authReducer,
     }),
     EffectsModule.forRoot([
-      AuthEffects,
-    ]),
+      AuthEffects, 
+      wishlistEffects, 
+      GeneralDetailsEffect]),
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

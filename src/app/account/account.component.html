@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="title">
+    <p>
+    My Account
+    </p>
+    </div>
+  <div class="content">
+    <div class="left-navigation">
+      <div class="images-container" >
+        <div class="center-container" >
+          <div class="profile-picture-container">
+            <img src="/assets/instagram.svg" alt="Profile Picture" class="profile-picture">
+          </div>
+        </div>
+        <div class="photo-icon-container" >
+          <img src="assets/heart_white.svg" class="photo-icon">
+        </div>
+      </div>
+      <p>{{userName | async}}</p>
+      <ul>
+        <li>
+          <a [routerLink]="['/account/general-details']">
+            <div routerLinkActive="line">Account</div>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/account/orders']"    >
+            <div routerLinkActive="line">Orders</div>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/account/wishlist']"  >
+            <div routerLinkActive="line">Wishlist</div>
+          </a>
+        </li>
+        <!-- Add more list items as needed -->
+      </ul>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

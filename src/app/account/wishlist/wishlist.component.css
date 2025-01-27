@@ -1,0 +1,67 @@
+.Wishlist {
+  vertical-align: top;
+  display: inline-block;
+  padding-left: 150px;
+  width: 900px;
+}
+
+.Wishlist p {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  padding-top: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead {
+  color: #6C7275;
+}
+
+.add-to-cart-button {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+  height: 140px;
+  text-align: left;
+}
+
+thead tr {
+  border-bottom: 1px solid #ddd;
+  height: 70px;
+  text-align: left;
+}
+
+.product-image {
+  padding-top: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+.cancel-icon {
+  padding-bottom: 40px;
+  padding-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.product-name {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 14px;
+  padding-top: 30px;
+  padding-left: 15px;
+  vertical-align: top;
+}
