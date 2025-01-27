@@ -2,11 +2,14 @@
 <div class="container" *ngIf="!(loading$ |async) && (product$ | async) as product">
     <div class="details">
         <app-product-images [images]="product.images!" ></app-product-images>
+        
         <div class="general-details">
             <div class="name">{{product.name}}</div>
             <div class="description">
                 {{product.description}}
             </div>
+            <img src="assets/heart.svg">
+
             <div class="price" *ngIf="product.discount">
               <div class="current-price">${{product.price! | price: product.discount.value!}}</div>
               <div class="previous-price">${{product.price}}</div>

@@ -12,7 +12,4 @@ export class ProductsComponent {
 
   @Input() products! : Product[]
 
-
-
-
 }

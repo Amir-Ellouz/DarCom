@@ -10,6 +10,9 @@ import {authReducer} from "./auth/store/auth.reducer";
 import {AuthEffects} from "./auth/store/auth.effects";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./auth/auth.interceptor";
+import { productReducer } from './shop/store/product.reducer';
+import {ProductEffects} from "./shop/store/product.effects";
+
 
 @NgModule({
   declarations: [
@@ -23,9 +26,11 @@ import {AuthInterceptor} from "./auth/auth.interceptor";
     BrowserAnimationsModule,
     StoreModule.forRoot({
       auth: authReducer,
+      products: productReducer
     }),
     EffectsModule.forRoot([
       AuthEffects,
+      ProductEffects,
     ]),
   ],
   providers: [
