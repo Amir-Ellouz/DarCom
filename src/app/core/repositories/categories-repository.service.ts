@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Endpoints} from "../utils/constant";
-import {Category} from "../../../../../bouhaha/src/app/core/models/base-models/categroy";
+import { Category } from '../models/base-models/categroy';
 
 @Injectable({
   providedIn: 'root'

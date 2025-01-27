@@ -32,27 +32,20 @@
         <div class="filter-title">
           PRICE
         </div>
-        <div class="price">
-          <div class="cat">All Prices</div>
-          <input type="checkbox" name="" id="99">
-        </div>
-        <div class="price">
-          <div class="cat">$0.00-99.99</div>
-          <input type="checkbox" name="" id="199">
-        </div>
-        <div class="price">
-          <div class="cat">$100.00-199.99</div>
-          <input type="checkbox" name="" id="299">
-        </div>
-        <div class="price">
-          <div class="cat">$200.00-299.99</div>
-          <input type="checkbox" name="" id="399">
-        </div>
-        <div class="price">
-          <div class="cat">$300.00-399.99</div>
-          <input type="checkbox" name="" id="+400">
+        <div class="price-range">
+          <mat-form-field appearance="outline" class="price-input">
+            <mat-label>Min Price</mat-label>
+            <input matInput type="number" [(ngModel)]="minPrice" placeholder="Enter minimum price" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="price-input">
+            <mat-label>Max Price</mat-label>
+            <input matInput type="number" [(ngModel)]="maxPrice" placeholder="Enter maximum price" />
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="filterByPrice()">Apply</button>
         </div>
       </div>
+      
+      
     </div>
     <div class="right-side">
       <div class="sorter">
@@ -61,7 +54,7 @@
         </h2>
       </div>
       <div class="spinner" *ngIf="(loading$ | async)"><mat-spinner ></mat-spinner></div>
-      <app-products [products]="(products$ | async)!" *ngIf="!(loading$ | async)"></app-products>
+      <app-products [products]="(filteredProducts$ | async)!" *ngIf="!(loading$ | async)"></app-products>
       <div class="seemore">
         <button (click)="addPage()">See more</button>
       </div>
