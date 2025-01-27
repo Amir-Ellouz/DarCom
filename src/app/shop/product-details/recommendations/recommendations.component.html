@@ -1,0 +1,15 @@
+<div class="spinner" *ngIf="(loading$ | async)"><mat-spinner ></mat-spinner></div>
+<div class="recommendation" *ngIf="!(loading$ | async)">
+  <div class="call-to-action">
+    <p class="text">
+      You might also like
+    </p>
+    <div class="action" (click)="viewMore()">
+      <p>More Products</p>
+      <img src="assets/arrow-right.svg">
+    </div>
+  </div>
+  <div class="grid-list">
+    <app-product-item *ngFor="let product of (products$ | async | slice:0:6 ) " [product]="product"></app-product-item>
+  </div>
+</div>

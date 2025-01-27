@@ -1,0 +1,13 @@
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
+  gap: 30px;
+}
+
+.sorter{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 20px 0;
+}
+
+

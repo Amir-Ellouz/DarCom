@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="top">
+    <img src="assets/background.svg" class="top-img">
+    <div class="image-overlay">
+      <div class="title">
+        Shop
+      </div>
+      <div class="description">
+        Let’s design the place you always imagined.
+      </div>
+    </div>
+  </div>
+  <div class="split-container">
+    <div class="left-side">
+      <div class="ftl">
+        <img src="assets/filter.svg" style="width: 40px;height: 40px">
+        <div style="font-size: 20px;font-weight: bold">Filter</div>
+      </div>
+      <div class="categories">
+        <div class="filter-title">
+          CATEGORIES
+        </div>
+        <div class="category" (click)="navigateToCategory(null)">All Rooms</div>
+        <div class="category" (click)="navigateToCategory('Living Room')">Living Room</div>
+        <div class="category" (click)="navigateToCategory('Bedroom')">Bedroom</div>
+        <div class="category" (click)="navigateToCategory('Kitchen')">Kitchen</div>
+        <div class="category" (click)="navigateToCategory('Bathroom')">Bathroom</div>
+        <div class="category" (click)="navigateToCategory('Dinning')">Dinning</div>
+        <div class="category" (click)="navigateToCategory('Outdoor')">Outdoor</div>
+      </div>
+      <div class="prices">
+        <div class="filter-title">
+          PRICE
+        </div>
+        <div class="price">
+          <div class="cat">All Prices</div>
+          <input type="checkbox" name="" id="99">
+        </div>
+        <div class="price">
+          <div class="cat">$0.00-99.99</div>
+          <input type="checkbox" name="" id="199">
+        </div>
+        <div class="price">
+          <div class="cat">$100.00-199.99</div>
+          <input type="checkbox" name="" id="299">
+        </div>
+        <div class="price">
+          <div class="cat">$200.00-299.99</div>
+          <input type="checkbox" name="" id="399">
+        </div>
+        <div class="price">
+          <div class="cat">$300.00-399.99</div>
+          <input type="checkbox" name="" id="+400">
+        </div>
+      </div>
+    </div>
+    <div class="right-side">
+      <div class="sorter">
+        <h2>
+          Products
+        </h2>
+      </div>
+      <div class="spinner" *ngIf="(loading$ | async)"><mat-spinner ></mat-spinner></div>
+      <app-products [products]="(products$ | async)!" *ngIf="!(loading$ | async)"></app-products>
+      <div class="seemore">
+        <button (click)="addPage()">See more</button>
+      </div>
+    </div>
+  </div>
+</div>
+

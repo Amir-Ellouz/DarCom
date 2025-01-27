@@ -1,0 +1,172 @@
+
+.container{
+    margin-top: 40px;
+}
+
+
+.details{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+
+
+
+.general-details{
+    width: 63%;
+}
+
+.name{
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.description{
+    color: #6C7275;
+    font-size: 16px;
+    font-weight: 200;
+    margin-bottom: 16px;
+}
+
+.cart-wishlist{
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+
+app-product-images{
+    width: 33%;
+}
+
+
+
+.cart-wishlist button{
+    height: 50px;
+    margin-left: 30px ;
+    background-color: transparent;
+    border: solid 1px black;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-wishlist button p{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.cart-button {
+    border: none;
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    background-color: black;
+    font-size: 18px;
+    color: white;
+    font-weight: 300;
+}
+
+
+hr{
+    color: #E8ECEF;
+}
+
+.price{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.current-price{
+    font-size: 28px;
+    font-weight: normal;
+    color: #121212;
+    margin-right: 10px;
+}
+
+.previous-price{
+    font-size: 20px;
+    font-weight: normal;
+    color: #6C7275;
+    text-decoration: line-through;
+}
+
+.discount-timeout{
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.timeout {
+    display: flex;
+}
+
+.text{
+    margin-bottom: 12px;
+    color: #343839;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.timeout-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F5F5;
+    color: #141718;
+    width: 55px;
+    height: 55px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.des{
+    color: #6C7275;
+    font-weight: 200;
+    font-size: 12px;
+}
+
+.colors{
+    margin-top: 16px;
+    margin-bottom: 48px;
+}
+
+.colors .text{
+    font-size: 16px;
+    color: #6C7275;
+    font-weight: normal;
+}
+
+
+.color-picker{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.color{
+    height: 50px;
+    width: 50px;
+    background-color: red;
+    margin-right: 10px;
+}
+
+.selected{
+    border: 2px solid #141718;
+}
+
+

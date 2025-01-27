@@ -1,0 +1,40 @@
+.recommendation{
+  margin-bottom: 16px;
+}
+
+.call-to-action{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.call-to-action .text{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.call-to-action .action{
+  display: flex;
+  border-bottom: 1px black solid;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.call-to-action .action p{
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.call-to-action .action img{
+  width: 15px;
+  height: 15px;
+}
+
+
+.grid-list{
+  display: grid;
+  grid-template-columns: repeat(6, 3fr);
+  gap: 10px;
+}
