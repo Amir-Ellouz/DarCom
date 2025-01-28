@@ -19,10 +19,13 @@ import { BehaviorSubject, combineLatest, map } from "rxjs";
 
 export class ShopComponent extends GenericComponent implements OnDestroy {
   products$: Observable<Product[]>; // The original products observable
-  filteredProducts$ = new BehaviorSubject<Product[]>([]); // To store filtered products
+  filteredProducts$ = new BehaviorSubject<Product[]>([]); // Filtered and paginated products
+  allProducts: Product[] = []; // Store all products
   loading$: Observable<boolean>;
   minPrice?: number; 
   maxPrice?: number;
+  currentPage$ = new BehaviorSubject<number>(1);
+  itemsPerPage = 6; // Adjust based on your needs
 
   constructor(
     private store: Store<ProductState>,
@@ -45,9 +48,18 @@ export class ShopComponent extends GenericComponent implements OnDestroy {
       .subscribe();
 
     this.loading$ = this.store.select(getProductsLoading);
-
+    
+    // Subscribe to the products observable and store all products
     this.products$ = this.store.select(getProducts);
-    this.products$.subscribe((products) => this.filteredProducts$.next(products));
+    this.products$.subscribe((products) => {
+      this.allProducts = products; 
+      this.paginateProducts();
+    });
+
+    // Update paginated products when the page changes
+    this.currentPage$.subscribe(() => {
+      this.paginateProducts();
+    });
   }
 
   ngOnDestroy(): void {
@@ -61,35 +73,34 @@ export class ShopComponent extends GenericComponent implements OnDestroy {
         page: 1,
       },
     });
+    this.currentPage$.next(1); // Reset page when changing category
   }
 
   addPage() {
-    const page = this.activatedRoute.snapshot.queryParams["page"];
-    const category = this.activatedRoute.snapshot.queryParams["category"];
-    this.router.navigate([], {
-      queryParams: {
-        category: category,
-        page: +page + 1,
-      },
-    });
+    this.currentPage$.next(this.currentPage$.value + 1);
+  }
+
+  paginateProducts() {
+    const currentPage = this.currentPage$.value;
+    const paginatedProducts = this.allProducts.slice(0, currentPage * this.itemsPerPage);
+    this.filteredProducts$.next(paginatedProducts);
   }
 
   filterByPrice() {
-    this.products$.pipe(
-      map((products) => {
-        // If minPrice and maxPrice are not defined, show all products
-        if (this.minPrice == null && this.maxPrice == null) {
-          return products;
-        }
-        return products.filter((product) => {
-          const price = product.price ?? 0; // Treat null prices as 0
-          return (
-            (this.minPrice == null || price >= this.minPrice) &&
-            (this.maxPrice == null || price <= this.maxPrice)
-          );
-        });
-      })
-    ).subscribe((filtered) => this.filteredProducts$.next(filtered));
+    let filteredProducts = this.allProducts;
+
+    if (this.minPrice != null || this.maxPrice != null) {
+      filteredProducts = filteredProducts.filter((product) => {
+        const price = product.price ?? 0; 
+        return (
+          (this.minPrice == null || price >= this.minPrice) &&
+          (this.maxPrice == null || price <= this.maxPrice)
+        );
+      });
+    }
+
+    this.allProducts = filteredProducts;
+    this.currentPage$.next(1); // Reset pagination
+    this.paginateProducts();
   }
-  
 }

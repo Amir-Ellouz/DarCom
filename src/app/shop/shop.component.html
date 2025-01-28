@@ -55,9 +55,11 @@
       </div>
       <div class="spinner" *ngIf="(loading$ | async)"><mat-spinner ></mat-spinner></div>
       <app-products [products]="(filteredProducts$ | async)!" *ngIf="!(loading$ | async)"></app-products>
-      <div class="seemore">
+      <div class="seemore" *ngIf="(filteredProducts$ | async)?.length && allProducts?.length && (filteredProducts$ | async)!.length < allProducts.length">
         <button (click)="addPage()">See more</button>
       </div>
+      
+      
     </div>
   </div>
 </div>
