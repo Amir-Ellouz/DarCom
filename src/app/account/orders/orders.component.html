@@ -1,0 +1,21 @@
+<div class="Orders">
+  <p>Orders History</p>
+  <table>
+    <thead>
+    <tr >
+      <th>Number ID</th>
+      <th>Dates</th>
+      <th>Status</th>
+      <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of orders$ | async" >
+      <td> {{order.id}} </td>
+      <td> {{order.date |  date:'yyyy-MM-dd'}} </td>
+      <td> {{order.status}} </td>
+      <td> {{order.id}} </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

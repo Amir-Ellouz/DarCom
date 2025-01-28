@@ -7,6 +7,7 @@ import {AccountRoutingModule} from "./account-routing.module";
 import {RouterModule} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SharedModule} from "../shared/shared.module";
+import { OrdersComponent } from './orders/orders.component';
 
 
 
@@ -14,6 +15,7 @@ import {SharedModule} from "../shared/shared.module";
   declarations: [
     GeneralDetailsComponent,
     WishlistComponent,
+    OrdersComponent,
     AccountComponent
   ],
     imports: [
