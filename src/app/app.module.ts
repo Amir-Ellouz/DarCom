@@ -10,6 +10,9 @@ import {authReducer} from "./auth/store/auth.reducer";
 import {AuthEffects} from "./auth/store/auth.effects";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./auth/auth.interceptor";
+import { productReducer } from './shop/store/product.reducer';
+import {ProductEffects} from "./shop/store/product.effects";
+
 import { wishlistEffects } from './account/wishlist/Store/wishlist.effects';
 import { GeneralDetailsEffect } from './account/general-details/Store/general-details.effect';
 
@@ -23,9 +26,11 @@ import { GeneralDetailsEffect } from './account/general-details/Store/general-de
     BrowserAnimationsModule,
     StoreModule.forRoot({
       auth: authReducer,
+      products: productReducer
     }),
     EffectsModule.forRoot([
       AuthEffects, 
+      ProductEffects,
       wishlistEffects, 
       GeneralDetailsEffect]),
   ],

@@ -43,17 +43,22 @@
 }
 
 
-.hero-img{
-    border-radius: 10px;
-    width: 100%;
-    height: auto;
-    background-color: #F3F5F7;
-}
-
-.hero-img img{
-    width: 100%;
-    height: auto;
-}
+.hero-img {
+    width: 100%; /* Ensures it spans the container */
+    height: 200px; /* Fixed height for all images */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Hides overflow if the image is larger */
+    border-radius: 8px; /* Optional: Adds rounded corners */
+  }
+  
+  .hero-img img {
+    width: auto; /* Maintains the aspect ratio */
+    height: 100%; /* Ensures it fills the height */
+    object-fit: cover; /* Ensures the image looks good even if cropped */
+  }
+  
 
 .name{
     font-size: 16px;
@@ -98,6 +103,7 @@
     align-items: center;
     cursor: pointer;
     border: none;
+    margin-top: -10px;
 
 }
 

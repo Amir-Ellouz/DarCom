@@ -13,6 +13,10 @@ const appRoutes: Routes = [
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
+    path: 'shop',
+    loadChildren: () => import('./shop/shop.module').then((m) => m.ShopModule),
+  },
+  {
     path: 'contact',
     loadChildren: () =>
       import('./contact/contact.module').then((m) => m.ContactModule),

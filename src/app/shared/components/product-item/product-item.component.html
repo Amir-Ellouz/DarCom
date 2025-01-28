@@ -9,7 +9,7 @@
     </div>
     <div (click)="onClick()" style="cursor: pointer">
       <div class="hero-img">
-        <img src="{{product.images ? product.images[0] : null  | image}}">
+        <img [src]="product.images && product.images.length ? 'assets/' + product.images[0] : 'assets/product_placeholder.jpg'">
       </div>
       <div class="name">{{product.name}}</div>
       <div class="price" *ngIf="product.discount">

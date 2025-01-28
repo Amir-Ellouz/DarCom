@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="top">
+    <img src="assets/background.svg" class="top-img">
+    <div class="image-overlay">
+      <div class="title">Shop</div>
+      <div class="description">Let’s design the place you always imagined.</div>
+    </div>
+  </div>
+  <div class="split-container">
+    <div class="left-side">
+      <div class="ftl">
+        <img src="assets/filter.svg" style="width: 40px; height: 40px">
+        <div style="font-size: 20px; font-weight: bold">Filter</div>
+      </div>
+      <div class="categories">
+        <div class="filter-title">CATEGORIES</div>
+        <div class="category" (click)="navigateToCategory(null)">All Rooms</div>
+        <div class="category" (click)="navigateToCategory('Living Room')">Living Room</div>
+        <div class="category" (click)="navigateToCategory('Bedroom')">Bedroom</div>
+        <div class="category" (click)="navigateToCategory('Kitchen')">Kitchen</div>
+        <div class="category" (click)="navigateToCategory('Bathroom')">Bathroom</div>
+        <div class="category" (click)="navigateToCategory('Dinning')">Dinning</div>
+        <div class="category" (click)="navigateToCategory('Outdoor')">Outdoor</div>
+      </div>
+      <div class="prices">
+        <div class="filter-title">PRICE</div>
+        <div class="price-range">
+          <mat-form-field appearance="outline" class="price-input">
+            <mat-label>Min Price</mat-label>
+            <input matInput type="number" [(ngModel)]="minPrice" placeholder="Enter minimum price" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="price-input">
+            <mat-label>Max Price</mat-label>
+            <input matInput type="number" [(ngModel)]="maxPrice" placeholder="Enter maximum price" />
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="filterByPrice()">Apply</button>
+        </div>
+      </div>
+    </div>
+    <div class="right-side">
+      <div class="sorter">
+        <h2>Products</h2>
+      </div>
+      <div class="spinner" *ngIf="(loading$ | async)">
+        <mat-spinner></mat-spinner>
+      </div>
+      <app-products [products]="(filteredProducts$ | async)!" *ngIf="!(loading$ | async)"></app-products>
+
+      <div class="pagination" *ngIf="totalPages > 1">
+        <button 
+          *ngFor="let page of [].constructor(totalPages); let i = index" 
+          (click)="goToPage(i + 1)"
+          [class.active]="(currentPage$ | async) === (i + 1)">
+          {{ i + 1 }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

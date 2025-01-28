@@ -1,0 +1,65 @@
+<div class="spinner" *ngIf="(loading$ | async)"><mat-spinner ></mat-spinner></div>
+<div class="container" *ngIf="!(loading$ |async) && (product$ | async) as product">
+    <div class="details">
+        <app-product-images [images]="product.images!" ></app-product-images>
+        
+        <div class="general-details">
+            <div class="name">{{product.name}}</div>
+            <div class="description">
+                {{product.description}}
+            </div>
+            <img src="assets/heart.svg">
+
+            <div class="price" *ngIf="product.discount">
+              <div class="current-price">${{product.price! | price: product.discount.value!}}</div>
+              <div class="previous-price">${{product.price}}</div>
+            </div>
+            <div class="price" *ngIf="!product.discount">
+                <div class="current-price">${{product.price}}</div>
+            </div>
+<!--            <hr>-->
+<!--            <div class="discount-timeout">-->
+<!--                <div class="text">Offer expires in :</div>-->
+<!--                <div class="timeout">-->
+<!--                    <div class="timeout-item">-->
+<!--                        <div class="box">12</div>-->
+<!--                        <div class="des">Days</div>-->
+<!--                    </div>-->
+<!--                    <div class="timeout-item">-->
+<!--                        <div class="box">12</div>-->
+<!--                        <div class="des">Hours</div>-->
+<!--                    </div>-->
+<!--                    <div class="timeout-item">-->
+<!--                        <div class="box">12</div>-->
+<!--                        <div class="des">Minutes</div>-->
+<!--                    </div>-->
+<!--                    <div class="timeout-item">-->
+<!--                        <div class="box">12</div>-->
+<!--                        <div class="des">Seconds</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <hr>-->
+<!--            <div class="colors">-->
+<!--                <div class="text">Choose Color  ></div>-->
+<!--                <div class="color-picker">-->
+<!--                    <div class="color selected"></div>-->
+<!--                    <div class="color"></div>-->
+<!--                    <div class="color"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="actions">
+                <div class="cart-wishlist">
+                    <app-items-number (updateItem)="handleEvent($event)"></app-items-number>
+                    <button (click)="addToWishlist()">
+                        <img src="assets/heart.svg">
+                        <div style="width: 10px"></div>
+                        <p>Wishlist</p>
+                    </button>
+                </div>
+                <button class="cart-button" (click)="addToCart()">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <app-recommendations [category]="product.category!.name!"></app-recommendations>
+</div>

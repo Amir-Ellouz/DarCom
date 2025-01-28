@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Endpoints } from '../utils/constant';
-import { Product } from '../../../../../bouhaha/src/app/core/models/base-models/product/product';
-import { GetProductsParams } from '../../../../../bouhaha/src/app/core/models/dto/get-products-params';
-import {map} from "rxjs";
+import { map } from "rxjs";
+import { GetProductsParams } from '../models/dto/get-products-params';
+import { Product } from '../models/base-models/product/product';
 
 @Injectable({
   providedIn: 'root',
@@ -16,9 +16,7 @@ export class ProductRepositoryService {
     if (params.category) {
       httpParams = httpParams.append('category', params.category);
     }
-    if (params.page) {
-      httpParams = httpParams.append('page', params.page);
-    }
+
     return this.httpClient.get<{products : Product[]}>(Endpoints.products, {
       params: httpParams,
     }).pipe(
