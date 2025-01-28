@@ -15,6 +15,10 @@ import {ProductEffects} from "./shop/store/product.effects";
 
 import { wishlistEffects } from './account/wishlist/Store/wishlist.effects';
 import { GeneralDetailsEffect } from './account/general-details/Store/general-details.effect';
+import { OrdersEffects } from './account/orders/Store/orders.effect';
+import { wishlistReducer } from './account/wishlist/Store/wishlist.reducer';
+import { ordersReducer } from './account/orders/Store/orders.reducer';
+import { userReducer } from './account/general-details/Store/general-details.reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,13 +30,18 @@ import { GeneralDetailsEffect } from './account/general-details/Store/general-de
     BrowserAnimationsModule,
     StoreModule.forRoot({
       auth: authReducer,
-      products: productReducer
+      products: productReducer,
+      wishlist: wishlistReducer,
+      orders: ordersReducer,
+      user: userReducer,
     }),
     EffectsModule.forRoot([
-      AuthEffects, 
+      AuthEffects,
       ProductEffects,
-      wishlistEffects, 
-      GeneralDetailsEffect]),
+      wishlistEffects,
+      GeneralDetailsEffect,
+      OrdersEffects,
+    ]),
   ],
   providers: [
     {
