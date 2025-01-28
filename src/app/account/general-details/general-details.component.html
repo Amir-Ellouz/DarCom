@@ -1,0 +1,34 @@
+<div class="form" >
+  <p>Account details</p>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="circular-input">
+      <label >EMAIL *</label>
+      <br>
+      <input type="text" formControlName="email" placeholder="john@email.com">
+    </div>
+    <div class="circular-input">
+      <label >FIRST NAME *</label>
+      <br>
+      <input type="text" formControlName="firstName" placeholder="Jhon">
+    </div>
+    <div class="circular-input">
+      <label >LAST NAME *</label>
+      <br>
+      <input type="text"  formControlName="lastName" placeholder="Ayadi">
+    </div>
+    <div class="circular-input">
+      <label >ADDRESS *</label>
+      <br>
+      <input type="text"  formControlName="address" placeholder="Adress">
+    </div>
+    <div class="circular-input">
+      <label >PHONE NUMBER *</label>
+      <br>
+      <input type="text" formControlName="phoneNumber" placeholder="Phone number">
+    </div>
+   <button type="submit" class="save-button">Save Changes</button>
+
+  </form>
+</div>
+
+<app-loader *ngIf="loading$ | async"></app-loader>

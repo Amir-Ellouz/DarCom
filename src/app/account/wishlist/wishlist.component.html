@@ -1,0 +1,27 @@
+<div class="Wishlist">
+  <p>Your Wishlist </p>
+  <table>
+    <thead>
+    <tr >
+      <th>Product</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of (wishList$ | async)">
+      <td>
+        <img  src="assets/cancel.svg" class="cancel-icon" (click)="removeFromWishlist(product.id!)">
+        <img src="{{product.images![0]}}" class="product-image">
+        <div class="product-name" >
+          {{product.name}}
+        </div>
+      </td>
+      <td>${{product.price}}</td>
+      <td>
+        <button type="button" class="add-to-cart-button">Add to card</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
