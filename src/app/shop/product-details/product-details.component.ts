@@ -8,6 +8,8 @@ import {MatDialog} from "@angular/material/dialog";
 import * as ProductsAction from "../store/product.actions"
 import {GenericComponent} from "../../shared/generic/generic.component";
 import {clearProductError} from "../store/product.actions";
+import {addToWishlist} from "../../account/wishlist/Store/wishlist.actions";
+import {startAddToBasket} from "../../cart/store/cart.actions";
 
 @Component({
   selector: 'app-product-details',
@@ -45,11 +47,11 @@ export class ProductDetailsComponent extends GenericComponent implements OnDestr
 
 
   addToWishlist(){
-    console.log('added to wishlist')
+    this.store.dispatch(addToWishlist({product : this.product}))
   }
 
   addToCart() {
-    console.log('added to basket')
+    this.store.dispatch(startAddToBasket({productId : this.product, itemsNumber : 1}))
   }
 
   handleEvent($event: number) {

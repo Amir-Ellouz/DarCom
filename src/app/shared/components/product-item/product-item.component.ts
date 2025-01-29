@@ -1,6 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../../../core/models/base-models/product/product';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { startAddToBasket } from 'src/app/cart/store/cart.actions';
+import { addToWishlist } from 'src/app/account/wishlist/Store/wishlist.actions';
 
 @Component({
   selector: 'app-product-item',
@@ -12,17 +15,20 @@ import { Router } from '@angular/router';
 export class ProductItemComponent {
   @Input() product!: Product;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private store: Store) {}
 
   onClick() {
-    console.log('item clicked')
+    this.router.navigate([`shop/product/${this.product.id}`]);
   }
 
   onAddToCart() {
-    console.log('Add to Cart Clicked');
+    this.store.dispatch(
+      startAddToBasket({ productId: this.product, itemsNumber: 1 })
+    );
   }
 
   onAddToWishlist() {
-    console.log('Add to Wishlist Clicked');
+    console.log('Wishlist Clicked');
+    this.store.dispatch(addToWishlist({ product: this.product }));
   }
 }

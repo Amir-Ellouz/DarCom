@@ -24,8 +24,8 @@ export class ShopComponent extends GenericComponent implements OnDestroy {
   maxPrice?: number;
 
   currentPage$ = new BehaviorSubject<number>(1); // Current page
-  totalPages = 1; // Total number of pages
-  itemsPerPage = 6; // Items per page
+  totalPages = 1; 
+  itemsPerPage = 6; 
 
   constructor(
     private store: Store<ProductState>,
