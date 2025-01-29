@@ -11,7 +11,8 @@
             <div class="svg" [routerLink]="['/account']"><img src="assets/profile.svg" alt="profile"></div>
             <div class="svg" (click)="onClick()" *ngIf="isAuthenticated | async"><img src="assets/logout.svg" alt="logout" ></div>
             <div class="svg cart">
-                cart
+                <img src="assets/cart.svg" alt="cart" [routerLink]="['/cart']">
+                <div class="cart-items">{{itemsNumber | async}}</div>
             </div>
         </div>
     </div>
