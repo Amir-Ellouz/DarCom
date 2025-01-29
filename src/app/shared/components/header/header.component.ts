@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import {isSignedIn} from "../../../auth/store/auth.reducer";
 import * as authActions from '../../../auth/store/auth.actions';
 import { Store } from '@ngrx/store';
+import { getBasketItemNumber } from 'src/app/cart/store/cart.reducer';
 
 @Component({
   selector: 'app-header',
@@ -13,9 +14,11 @@ import { Store } from '@ngrx/store';
 })
 export class HeaderComponent {
   isAuthenticated: Observable<boolean>;
-  
-  constructor(private store: Store,private router: Router) {
+  itemsNumber: Observable<number>;
+
+  constructor(private store: Store, private router: Router) {
     this.isAuthenticated = this.store.select(isSignedIn);
+    this.itemsNumber = this.store.select(getBasketItemNumber);
   }
 
   onClick() {

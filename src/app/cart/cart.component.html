@@ -1,0 +1,261 @@
+<div class="container">
+  <div class="hero-title">
+    <div class="slogan">
+      <p>Cart</p>
+    </div>
+  </div>
+
+  <div class="banner-grid">
+    <div class="tab">
+      <div class="tabcontent">
+        <div class="tabNumber">1</div>
+        <button class="tablinks">Shopping cart</button>
+      </div>
+
+      <div class="tabLastingContent">
+        <div class="tabNumber">2</div>
+      <button class="tablinks">Checkout details</button>
+      </div>
+
+      <div class="tabLastingContent">
+        <div class="tabNumber">3</div>
+      <button class="tablinks" >Order complete</button>
+      </div>
+    </div>
+
+
+    <div *ngIf="currentTab === 'Tab1'" class="firstTab">
+      <div style="width: 55%;" >
+        <div class="orderItems">
+          <p class="orderItem">Product</p>
+          <p class="orderItem">Price</p>
+          <p class="orderItem">Subtotal</p>
+        </div>
+        <div class="productDetails" *ngFor="let cart of basketProducts " >
+          <div class="productDetailsInternalStyling">
+            <div>
+              <img class="checkoutImage" src="{{cart.product.images![0]!}}">
+            </div>
+            <div style="align-items: center;">
+              <p class="productTitle">{{ cart.product.name }}</p>
+              <div class="removeProduct">
+                <img src="assets/cancel.svg" class="removeIcon">
+                <button class="removeProductInside" (click)="removeProduct(cart.product.id!)">Remove</button>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center;padding-left: 145px;">
+            <p>{{ cart.product.price | currency }}</p>
+          </div>
+          <div style="display: flex; align-items: center;padding-left: 360px;">
+            <p>
+              {{ cart.product.price! * cart.itemsNumber | currency }}
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <div class="cartSummary" >
+        <p style="font-size: 25px;">Cart summary</p>
+        <div class="shipping">
+          <div class="radioButton">
+          <input type="radio" id="FS"  name="drone" value="Free shipping" checked [(ngModel)]="selectedShipping"/>
+          <label for="FS" style="font-size: 18px;">Free shipping</label>
+        </div>
+          <p style="margin-left: auto;">$0.00</p>
+        </div>
+        <div class="expShipping">
+          <div class="radioButton">
+            <input type="radio" id="ES" name="drone" value="Express shipping" [(ngModel)]="selectedShipping" />
+            <label for="ES" style="font-size: 18px;">Express shipping</label>
+          </div>
+          <p style="margin-left: auto;">+$15.00</p>
+        </div>
+        <div class="cartSubtotal">
+          <p style="font-size: 18px;">Subtotal</p>
+          <p style="margin-left: auto;">
+            ${{
+            basketProducts
+              | map: 'product.price * itemsNumber'
+              | subtotal
+            }}</p>
+        </div>
+        <div class="cartTotal">
+          <p  style="font-size: 18px;font-weight: bold">Total</p>
+          <p style="margin-left: auto;" *ngIf="selectedShipping === 'Express shipping'">
+            ${{ (basketProducts | map: 'product.price * itemsNumber' | subtotal | total: expressShippingCost) }}
+          </p>
+          <p style="margin-left: auto;" *ngIf="selectedShipping !== 'Express shipping'">
+            ${{ (basketProducts | map: 'product.price * itemsNumber' | subtotal)  }}
+          </p>        </div>
+        <div style="display: flex;justify-content: center;">
+          <button class="checkoutButton" (click)="openTab('Tab2')">Checkout</button>
+        </div>
+      </div>
+      </div>
+
+    <div *ngIf="currentTab === 'Tab2'" class="checkoutTab">
+      <div class="formParts" >
+        <div class="formPart" >
+          <p class="formPartTitle">Contact Information</p>
+
+          <div class="contactInfo">
+           <div class="formPartInfo">
+             <label for="Fname" class="formLabel">FIRST NAME</label>
+             <input type="text" id="Fname" name="Fname" placeholder="First name" class="inputForm">
+           </div>
+
+            <div  class="formPartInfo">
+              <label for="Lname" class=formLabel>LAST NAME</label>
+              <input type="text" id="Lname" name="Lname" placeholder="Last name" class="inputForm">
+            </div>
+          </div>
+          <label for="phone" class="phoneEmail">PHONE NUMBER</label>
+          <input type="tel" id="phone" name="phone" placeholder="Phone number" class="inputForm">
+
+          <label for="email" class="phoneEmail">EMAIL ADDRESS</label>
+          <input type="email" id="email" name="email" placeholder="Your email" class="inputForm">
+
+        </div>
+        <div class="formPart" >
+
+          <p class="formPartTitle">Shipping Address</p>
+          <label for="address" class="moreFormLabel">STREET ADDRESS*</label>
+          <input type="text" id="address" name="address" placeholder="Street address" class="inputForm">
+
+          <label for="country" class="moreFormLabel">COUNTRY*</label>
+          <input type="text" id="country" name="country" placeholder="Country" class="inputForm">
+
+          <label for="town" class="moreFormLabel">TOWN / CITY *</label>
+          <input type="text" id="town" name="town" placeholder="Town/City" class="inputForm">
+
+          <div class="formStateSection">
+            <div class="stateSection">
+              <label for="State" class=formLabel>STATE</label>
+              <input type="text" id="State" name="State" placeholder="State" class="inputForm">
+
+            </div>
+
+            <div  class="stateSection">
+              <label for="Zcode" class=formLabel>ZIP CODE</label>
+              <input type="text" id="Zcode" name="Zcode" placeholder="Zip Code" class="inputForm">
+            </div>
+
+          </div>
+
+        </div>
+        <div class="formPart" >
+          <p class="formPartTitle">Payment Method</p>
+
+          <div class="shipping">
+            <div class="radioButton">
+              <input type="radio" id="Stripe" name="Stripe" value="Stripe" checked  />
+              <label for="Stripe" style="font-size: 18px;">Stripe</label>
+            </div>
+          </div>
+
+          <label for="cardNumber" class="moreFormLabel">CARD NUMBER</label>
+          <input type="number" id="cardNumber" name="cardNumber" placeholder="1234 1234 1234" class="inputForm">
+
+          <div style="display: flex;flex-direction: row; gap: 30px;margin-top: 15px">
+            <div class="formPartInfo">
+              <label for="expirationDate" class=formLabel>EXPIRATION DATE</label>
+              <input type="date" id="expirationDate" name="expirationDate" placeholder="MM/YY" class="inputForm">
+            </div>
+            <div  class="formPartInfo">
+              <label for="cvcCode" class=formLabel>CVC CODE</label>
+              <input type="text" id="cvcCode" name="cvcCode" placeholder="CVC Code" class="inputForm">
+            </div>
+          </div>
+        </div>
+        <div style="display: flex;justify-content: center;">
+          <button class="placeOrderButton" (click)="addOrder(); openTab('Tab3')" >Place Order</button>
+        </div>
+      </div>
+       <div class="orderSummary" >
+          <p class="orderSummaryTitle">Order summary</p>
+          <div class="productDetails checkoutProductDetails" *ngFor="let cart of basketProducts">
+            <div class="productDetailsInternalStyling">
+              <div>
+                <img class="orderSummaryImage" src="{{cart.product.images![0]!}}">
+              </div>
+              <div style="align-items: center;">
+                  <p class="productTitle">{{cart.product.name}}</p>
+              </div>
+            </div>
+            <div style="display: flex; margin-left: auto;">
+              <p>
+                {{cart.product.price}}
+              </p>
+            </div>
+          </div>
+
+         <div class="orderSummaryDetails">
+            <p>Shipping</p>
+           <p class="orderSummaryAmounts" *ngIf="selectedShipping === 'Express shipping'">
+             +${{ expressShippingCost }
+           </p>
+           <p class="orderSummaryAmounts" *ngIf="selectedShipping !== 'Express shipping'">
+             Free
+           </p>
+         </div>
+          <div class="orderSummaryDetails">
+            <p>Subtotal</p>
+            <p class="orderSummaryAmounts">    ${{ (basketProducts | map: 'product.price * itemsNumber' | subtotal) }}
+            </p>
+          </div>
+          <div class="orderSummaryTotal">
+            <p style="font-weight: 500">Total</p>
+            <p class="orderSummaryAmounts" *ngIf="selectedShipping === 'Express shipping'">
+              ${{ (basketProducts | map: 'product.price * itemsNumber' | subtotal | total: expressShippingCost)  }}
+            </p>
+            <p class="orderSummaryAmounts" *ngIf="selectedShipping !== 'Express shipping'">
+              ${{ (basketProducts | map: 'product.price * itemsNumber' | subtotal) }}
+            </p>
+          </div>
+        </div>
+
+    </div>
+
+    <div *ngIf="currentTab === 'Tab3'" class="validtionTab">
+      <div class="validtionTabContainer">
+      <p class="thankingWord">Thank you! 🎉</p>
+        <p style="margin: 10px;font-weight: 600;font-size: 35px">Your Order has been received</p>
+        <div style="display: flex;flex-direction: row;margin: 20px; gap:35px">
+          <div *ngFor="let cart of basketProducts">
+            <img src="{{cart.product.images![0]!}}" style="width: 150px;">
+          </div>
+
+        </div>
+        <div class="validationResume">
+          <div class="validationDetailsItems">
+            <p class="validationDetails">Date:</p>
+            <p class="validationDetailsItemsValues">October 19, 2023</p>
+          </div>
+          <div class="validationDetailsItems">
+            <p class="validationDetails">Total:</p>
+            <p class="validationDetailsItemsValues" *ngIf="selectedShipping === 'Express shipping'">
+              ${{ (basketProducts | map: 'product.price * itemsNumber' | subtotal | total: expressShippingCost)  }}
+            </p>
+            <p class="validationDetailsItemsValues" *ngIf="selectedShipping !== 'Express shipping'">
+              ${{ (basketProducts | map: 'product.price * itemsNumber' | subtotal) }}
+            </p>
+          </div>
+          <div class="validationDetailsItems">
+            <p class="validationDetails">Payment method:</p>
+            <p class="validationDetailsItemsValues">Stripe</p>
+          </div>
+        </div>
+        <div class="purchaseHistory">
+          <button class="historyButton" [routerLink]="['/account/orders']">purchase history</button>
+        </div>
+        </div>
+
+
+
+    </div>
+  </div>
+</div>
+<app-loader  *ngIf="loading$| async"></app-loader>
+<app-loader  *ngIf="orderLoading$| async"></app-loader>
+

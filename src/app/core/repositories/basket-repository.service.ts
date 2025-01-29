@@ -27,7 +27,6 @@ export class BasketRepositoryService {
     return this.httpClient.delete(Endpoints.deleteFromBasket(productId))
   }
 
-  //added by roua
   getBasket(user : User){
     return this.httpClient.get<{user : User}>(
       Endpoints.basket,
