@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {ProductOrder} from "../../../../../bouhaha/src/app/core/models/dto/product-order";
+import { ProductOrder } from '../models/dto/product-order';
 import {Endpoints} from "../utils/constant";
 
 @Injectable({

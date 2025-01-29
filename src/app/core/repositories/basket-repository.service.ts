@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Endpoints} from "../utils/constant";
-import {Product} from "../../../../../bouhaha/src/app/core/models/base-models/product/product";
-import {User} from "../../../../../bouhaha/src/app/core/models/base-models/user";
+import { Product } from '../models/base-models/product/product';
+import { User } from '../models/base-models/user';
 
 @Injectable({
   providedIn: 'root'

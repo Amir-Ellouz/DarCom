@@ -2,10 +2,10 @@
     <div class="header">
         <div class="leading">DarCom</div>
         <div class="content">
-            <a class="nav" >Home</a>
+            <a class="nav" [routerLinkActive]="['active']" [routerLink]="['/home']">Home</a>
             <a class="nav" [routerLinkActive]="['active']" [routerLink]="['/shop']" >Shop</a>
             <a class="nav" [routerLinkActive]="['active']" [routerLink]="['/discount']">Discounts</a>
-            <a class="nav" >Contact Us</a>
+            <a class="nav" [routerLinkActive]="['active']" [routerLink]="['/contact']">Contact Us</a>
         </div>
         <div class="actions">
             <div class="svg" [routerLink]="['/account']"><img src="assets/profile.svg" alt="profile"></div>
