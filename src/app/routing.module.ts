@@ -22,6 +22,11 @@ const appRoutes: Routes = [
       import('./contact/contact.module').then((m) => m.ContactModule),
   },
   {
+    path: 'discount',
+    loadChildren: () =>
+      import('./discount/discount.module').then((m) => m.DiscountModule),
+  },
+  {
     path: 'account',
     canActivate: [],
     loadChildren: () =>
