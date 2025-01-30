@@ -23,7 +23,12 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
         this.store.dispatch(autoLogin())
-  this.store.dispatch(loadBasket());
-}
+        try {
+          this.store.dispatch(loadBasket());
+        } catch (error) {
+          console.log(error);
+          
+        }
+  }
     
 }
