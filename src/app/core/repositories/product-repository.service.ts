@@ -16,7 +16,9 @@ export class ProductRepositoryService {
     if (params.category) {
       httpParams = httpParams.append('category', params.category);
     }
-
+    if (params.page) {
+      httpParams = httpParams.append('page', params.page);
+    }
     return this.httpClient.get<{products : Product[]}>(Endpoints.products, {
       params: httpParams,
     }).pipe(

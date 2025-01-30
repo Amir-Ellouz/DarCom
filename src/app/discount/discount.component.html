@@ -22,9 +22,6 @@
                 <div class="spinner" *ngIf="(loading$ | async)"><mat-spinner ></mat-spinner></div>
                 <app-product-item *ngFor="let discount of (discounts$ | async | slice:0:6 ) " [product]="discount.product "></app-product-item>
             </div>
-            <div class="seemore">
-                <button>See more</button>
-            </div>
         </div>
     </div>
 </div>

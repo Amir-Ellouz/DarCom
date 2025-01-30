@@ -13,6 +13,9 @@ export class DiscountRepositoryService {
 
   getDiscounts(params: GetDiscountParams) {
     let httpParams = new HttpParams();
+    if (params.page) {
+      httpParams = httpParams.append('page', params.page);
+    }
     return this.httpClient.get<Discount[]>(Endpoints.discounts, {
       params: httpParams,
     });

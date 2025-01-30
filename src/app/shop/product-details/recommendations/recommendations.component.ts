@@ -43,6 +43,7 @@ export class RecommendationsComponent extends GenericComponent implements OnDest
     this.router.navigate(["/shop"],{
       queryParams : {
         category : this.category,
+        page : 1
       }
     })
   }

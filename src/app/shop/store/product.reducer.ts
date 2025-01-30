@@ -36,15 +36,15 @@ export const productReducer = createReducer(
   on(
     ProductActions.fetchedProducts,
     (state,action)=>{
-      const {category} = action.params
-      if (category){
+      const {page , category} = action.params
+      if (category && page!=1){
         return {
           ...state,
           error : null,
           loading : false,
           products : [...state.products,...action.products]
         }
-      }else if(!category){
+      }else if(!category && page!=1){
         return {
           ...state,
           error : null,

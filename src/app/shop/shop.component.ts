@@ -40,7 +40,7 @@ export class ShopComponent extends GenericComponent implements OnDestroy {
         tap((params) => {
           this.store.dispatch(
             ProductsActions.startFetchingProducts({
-              params: { category: params['category'] },
+              params: { page: +params["page"], category: params["category"] },
             })
           );
         })
@@ -69,6 +69,7 @@ export class ShopComponent extends GenericComponent implements OnDestroy {
     this.router.navigate([], {
       queryParams: {
         category: category,
+        page: 1,
       },
     });
     this.currentPage$.next(1); // Reset to the first page when the category changes

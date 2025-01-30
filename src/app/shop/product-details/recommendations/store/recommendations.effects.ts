@@ -23,7 +23,7 @@ export class RecommendationsEffects{
         ofType(recommendationStartFetching),
         switchMap((value)=>{
           return this.productsRepository.getProducts(
-            {category : value.category}
+            {category : value.category,page : null}
           ).pipe(
             map((value)=>{
               console.log("Reccommendation",value)
