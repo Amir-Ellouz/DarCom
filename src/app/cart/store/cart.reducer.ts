@@ -108,7 +108,7 @@ const cartFeature = createFeatureSelector<BasketState>('cart');
 
 export const getBasket = createSelector(cartFeature, (state) => state.products);
 export const cartFeatureState =
-  createFeatureSelector<BasketState>('cartReducer');
+  createFeatureSelector<BasketState>('cart');
 
 export const getBasketProducts = createSelector(
   cartFeatureState,

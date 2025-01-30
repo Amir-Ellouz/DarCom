@@ -1,9 +1,9 @@
-.container{
+.container {
   margin-top: 20px;
   margin-bottom: 300px;
 }
 
-.hero-title{
+.hero-title {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@
   gap: 40px;
 }
 
-.slogan{
+.slogan {
   font-size: 72px;
   font-weight: 500;
 }
@@ -28,9 +28,10 @@
   gap: 130px;
 }
 
-.tablinks{
+.tablinks {
   align-items: center;
 }
+
 .tab button {
   background-color: inherit;
   float: left;
@@ -52,18 +53,18 @@
   border-radius: 50%;
   background-color: black;
   color: #ffffff;
-  adding: 10px;
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center
 }
+
 /* Style the tab content */
 .tabcontent {
   display: flex;
   flex-direction: row;
-  gap:5px;
+  gap: 5px;
   justify-content: center;
   justify-items: center;
   align-items: center;
@@ -73,7 +74,7 @@
 .tabLastingContent {
   display: flex;
   flex-direction: row;
-  gap:5px;
+  gap: 5px;
   justify-content: center;
   justify-items: center;
   align-items: center;
@@ -99,6 +100,7 @@
   align-items: center;
   font-weight: bold;
 }
+
 .productDetails {
   display: flex;
   border-bottom: 1px solid #E8ECEF;
@@ -110,26 +112,28 @@
   padding-bottom: 15px
 }
 
-.productDetailsInternalStyling{
+.productDetailsInternalStyling {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
+
 .checkoutImage {
   width: 150px;
   height: auto;
 }
 
-.productTitle{
+.productTitle {
   font-size: 14px;
 }
 
 .productColor {
   font-size: 12px;
   color: #6c7275;
-  margin-top: 10px}
+  margin-top: 10px
+}
 
-.removeProduct{
+.removeProduct {
   display: flex;
   flex-direction: row;
   margin-top: 5px;
@@ -143,7 +147,7 @@
   justify-items: center;
 }
 
-.removeProductInside{
+.removeProductInside {
   background-color: inherit;
   float: left;
   border: none;
@@ -195,6 +199,7 @@
   margin-top: 30px;
   padding-bottom: 15px
 }
+
 .cartTotal {
   display: flex;
   flex-direction: row;
@@ -248,7 +253,7 @@
   gap: 30px
 }
 
-.formPartInfo{
+.formPartInfo {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -272,12 +277,12 @@
 
 .phoneEmail {
   font-size: 13px;
-  color: grey ;
+  color: grey;
   margin-top: 15px;
   font-weight: 500
 }
 
-.moreFormLabel{
+.moreFormLabel {
   font-size: 13px;
   color: grey;
   margin-top: 15px;
@@ -363,13 +368,13 @@
 }
 
 .validtionTabContainer {
-  width:70%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   justify-items: center;
   align-items: center;
-  box-shadow: 0px 5px 5px  #919191
+  box-shadow: 0px 5px 5px #919191
 }
 
 .thankingWord {
@@ -418,8 +423,9 @@
   font-size: 15px;
   padding: 15px;
   margin: 5px;
-  width:100%;
+  width: 100%;
 }
+
 input {
   text-align: center;
   border: 1px solid #6C757D;

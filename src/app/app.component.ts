@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { RouteWatcherService } from './route-watcher.service';
 import {Store} from "@ngrx/store";
 import {autoLogin} from "./auth/store/auth.actions";
+import { loadBasket } from './cart/store/cart.actions';
 
 @Component({
   selector: 'app-root',
@@ -22,5 +23,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
         this.store.dispatch(autoLogin())
-    }
+  this.store.dispatch(loadBasket());
+}
+    
 }

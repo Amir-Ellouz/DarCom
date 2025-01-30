@@ -14,6 +14,8 @@ export const ADD_TO_BASKET_SUCCESS = '[CART] ADD_TO_BASKET_SUCCESS';
 
 export const BASKET_ERROR = '[CART] BASKET_ERROR';
 
+export const LOAD_BASKET = '[CART] LOAD BASKET FROM LOCAL STORAGE ';
+
 export const CLEAR_ERROR = '[CART] CLEAR_ERROR';
 
 export const CLEAR_STATE = '[CART] CLEAR_STATE';
@@ -26,6 +28,10 @@ export const startAddToBasket = createAction(
 export const removeFromBasketStart = createAction(
   START_REMOVE_FROM_BASKET,
   props<{ productId: number }>()
+);
+
+export const loadBasket = createAction(
+  LOAD_BASKET,
 );
 
 export const setBasket = createAction(SET_BASKET, props<{ basket: Basket }>());
