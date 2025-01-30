@@ -21,6 +21,8 @@ import { OrdersEffects } from './account/orders/Store/orders.effect';
 import { wishlistReducer } from './account/wishlist/Store/wishlist.reducer';
 import { ordersReducer } from './account/orders/Store/orders.reducer';
 import { userReducer } from './account/general-details/Store/general-details.reducer';
+import {discountReducer} from "./discount/store/discount.reducer";
+import {DiscountEffects} from "./discount/store/discount.effects";
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,6 +39,7 @@ import { userReducer } from './account/general-details/Store/general-details.red
       wishlist: wishlistReducer,
       orders: ordersReducer,
       user: userReducer,
+      discounts : discountReducer,
     }),
     EffectsModule.forRoot([
       AuthEffects,
@@ -45,6 +48,7 @@ import { userReducer } from './account/general-details/Store/general-details.red
       GeneralDetailsEffect,
       CartEffects,
       OrdersEffects,
+      DiscountEffects
     ]),
   ],
   providers: [
