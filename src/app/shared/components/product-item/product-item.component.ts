@@ -8,9 +8,8 @@ import { addToWishlist } from 'src/app/account/wishlist/Store/wishlist.actions';
 @Component({
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
-  styleUrls: ['./product-item.component.css'],  
+  styleUrls: ['./product-item.component.css'],
   standalone: false,
-
 })
 export class ProductItemComponent {
   @Input() product!: Product;

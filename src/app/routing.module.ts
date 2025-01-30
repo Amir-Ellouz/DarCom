@@ -38,7 +38,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'cart',
-    canActivate: [],
+    canActivate: [authGuard],
     loadChildren: () => import('./cart/cart.module').then((m) => m.CartModule),
   },
 ];

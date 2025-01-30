@@ -12,14 +12,13 @@ import {SharedModule} from "../shared/shared.module";
   declarations: [
     CartComponent,
   ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild([{path: "", component: CartComponent}]),
-        SharedModule,
-        MatFormFieldModule,
-        NgxStripeModule,
-
-    ],
-  providers : [DatePipe]
+  imports: [
+    CommonModule,
+    RouterModule.forChild([{ path: '', component: CartComponent }]),
+    SharedModule,
+    MatFormFieldModule,
+    NgxStripeModule,
+  ],
+  providers: [DatePipe],
 })
-export class CartModule { }
+export class CartModule {}

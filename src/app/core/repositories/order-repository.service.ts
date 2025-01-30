@@ -16,7 +16,7 @@ export class OrderRepositoryService {
       Endpoints.makeOrder,
       {
         product : productToOrder
-      }
+      } 
     )
   }
 

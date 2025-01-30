@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Endpoints} from "../utils/constant";
 import { Product } from '../models/base-models/product/product';
 import { User } from '../models/base-models/user';
@@ -8,18 +8,22 @@ import { User } from '../models/base-models/user';
   providedIn: 'root'
 })
 export class BasketRepositoryService {
-
-  constructor(private httpClient: HttpClient) { }
+  
+  constructor(private httpClient: HttpClient) {
+  }
 
 
   addToBasket(productId: number,itemsNumber : number){
-    return this.httpClient.post<{product : Product}>(
+    const token = localStorage.getItem('token'); // Fetch the latest token
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.httpClient.post<{ product: Product }>(
       Endpoints.addToBasket,
-      {
-        id : productId,
-        itemsNumber : itemsNumber
-        }
-      )
+      { id: productId, itemsNumber },
+      { headers }
+    );
   }
 
 
